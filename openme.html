@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Project</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url("https://c4.wallpaperflare.com/wallpaper/120/406/430/holiday-birthday-cake-colors-wallpaper-preview.jpg");
+        background-size: 100% 100%;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+      }
+      #container {
+        position: absolute;
+        background: lightskyblue;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 100;
+      }
+
+      .title {
+        font-size: 1.2em;
+        font-weight: bold;
+        background-color: red;
+        color: white;
+        border-radius: 20px;
+        padding: 10px;
+      }
+
+      .container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99;
+      }
+
+      /* Hide animation for the container */
+      #container.hide {
+        animation: hideContainer 1s linear forwards;
+      }
+      @keyframes hideContainer {
+        0% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+      }
+      #present_button {
+        min-width: 100px;
+        max-width: 200px;
+        width: 20%;
+        cursor: pointer;
+        z-index: 99;
+        background: transparent;
+        border: none;
+      }
+
+      #present_box {
+      
+        width: 100%;
+        transition: all 0.3s linear;
+      }
+
+      #present_box:hover {
+        animation: shaking 1s infinite;
+        transition: all 0.3s ease;
+      }
+
+      .rainbow-border {
+        border: 5px solid; /* Set border width */
+        border-image: linear-gradient(
+            45deg,
+            red,
+            orange,
+            yellow,
+            green,
+            blue,
+            indigo,
+            violet
+          )
+          1;
+        display: inline-block; /* Shrink-wrap to image size */
+      }
+
+      @keyframes shaking {
+        0% {
+          transform: translateX(0) scale(1);
+        }
+        10% {
+          transform: translateX(-5px) scale(1.1);
+        }
+        20% {
+          transform: translateX(5px) scale(1.2);
+        }
+        30% {
+          transform: translateX(-5px) scale(1.3);
+        }
+        40% {
+          transform: translateX(5px) scale(1.2);
+        }
+        50% {
+          transform: translateX(0) scale(1.1);
+        }
+        100% {
+          transform: translateX(0) scale(1);
+        }
+      }
+
+      #click_me_button {
+        font-weight: bold;
+        border-radius: 20px;
+        border: none;
+        border-left: 5px solid teal;
+        border-bottom: 5px solid teal;
+        padding: 10px;
+        font-size: 2em;
+        transition: all 0.1s ease-in-out;
+        transform: scale(1);
+      }
+      #click_me_button:hover {
+        background: lightblue;
+      }
+      #click_me_button:active {
+        border: none;
+      }
+
+      .money {
+        display: inline-block;
+        color: green;
+        animation: pulse 2s infinite;
+        transition: all 1s ease-in;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 0.5;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      /* Style the video so it's hidden initially */
+      #birthdayVideo {
+        position: absolute;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <video id="birthdayVideo">
+      <source src="/Media/video.mp4" type="video/mp4" />
+    </video>
+    <audio id="birthdayAudio">
+      <source src="/Media/audio.mp3" type="audio/mpeg" />
+    </audio>
+    <div id="container">
+      <button id="click_me_button">
+        Click on me to win <span class="money">$$$</span>
+      </button>
+    </div>
+
+    <div class="container">
+      <button id="present_button">
+        <img
+          id="present_box"
+          src="https://image.similarpng.com/file/similarpng/original-picture/2020/09/White-gift-box-with-red-bow-premium-vector-PNG.png"
+          alt="present"
+        />
+        <h2 class="title">Click to open present</h2>
+      </button>
+    </div>
+    <img
+      style="position: absolute; top: 12px; left: 30px;width: 20%;"
+      src="https://media.tenor.com/sbfBfp3FeY8AAAAj/oia-uia.gif"
+      alt="Cat1"
+    />
+    <img
+      style="position: absolute; top: 20%; left: 20%; width: 30%"
+      src="https://media.tenor.com/ejEmffduuQYAAAAj/happy-cat.gif"
+      alt="Cat2"
+    />
+    <img
+      style="position: absolute; bottom: 12px; left: 30px; width: 20%"
+      src="https://media.tenor.com/VqQyx_FNvQoAAAAj/popcat-pop.gif"
+      alt="Cat2"
+    />
+    <img
+      style="position: absolute; top: 12px; right: 30px; width: 20%"
+      src="https://i.pinimg.com/originals/7b/6c/98/7b6c983cc47383be4ea987381496e5a3.gif"
+      alt="Cake"
+    />
+    <img
+      class="rainbow-border"
+      style="position: absolute; top: 50%; right: 30px; width: 20%;min-width: 150px;"
+      src="https://funplus.vn/wp-content/uploads/2024/02/chuc-ngay-moi-tot-lanh-tang-ban-trai-dua-nhe-2ab37913d5ef13e19dd2f29c727da495.jpg"
+      alt="thiep chuc"
+    />
+    <img
+    class="rainbow-border"
+      style="position: absolute; bottom: 12px; left: 40%; width: 30%;min-width: 150px;"
+      src="https://www.nme.com/wp-content/uploads/2022/11/red-velvet-sm-entertainment-281122.jpg"
+      alt="thiep chuc"
+    />
+    <img
+    class="rainbow-border"
+      style="position: absolute; top: 10px; left: 40%; width: 30%;min-width: 150px;"
+      src="https://media0.giphy.com/media/Ka3dxqVyiIJgEh6qwe/giphy.gif?cid=6c09b952mb7by0n2a4sbin8rh7ix42az05vk0fr5q6oevgjh&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+      alt="thiep chuc"
+    />
+    <script>
+      document
+        .getElementById("click_me_button")
+        .addEventListener("click", () => {
+          document.getElementById("container").remove();
+          // Play the audio and log any errors
+          const audio = document.getElementById("birthdayAudio");
+          if (audio) {
+            audio.play().catch((err) => console.error("Playback failed:", err));
+            audio.volume = 0.2;
+          }
+        });
+
+      // When the "present_button" is clicked, stop the audio and play the video full screen.
+      document
+        .getElementById("present_button")
+        .addEventListener("click", () => {
+          // Stop the audio
+          const audio = document.getElementById("birthdayAudio");
+          if (audio) {
+            audio.pause();
+            audio.currentTime = 0;
+          }
+          // Play the video and request full screen
+          const video = document.getElementById("birthdayVideo");
+          if (video) {
+            // Make sure the video is visible
+            video.style.display = "block";
+            video
+              .play()
+              .then(() => {
+                if (video.requestFullscreen) {
+                  video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) {
+                  video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) {
+                  video.msRequestFullscreen();
+                }
+              })
+              .catch((err) => console.error("Video playback failed:", err));
+            // Listen for exit from fullscreen, then hide the video
+            function exitHandler() {
+              if (
+                !document.fullscreenElement &&
+                !document.webkitFullscreenElement &&
+                !document.msFullscreenElement
+              ) {
+                video.style.display = "none";
+                video.pause();
+                document.removeEventListener("fullscreenchange", exitHandler);
+                document.removeEventListener(
+                  "webkitfullscreenchange",
+                  exitHandler
+                );
+                document.removeEventListener("msfullscreenchange", exitHandler);
+              }
+            }
+            document.addEventListener("fullscreenchange", exitHandler);
+            document.addEventListener("webkitfullscreenchange", exitHandler);
+            document.addEventListener("msfullscreenchange", exitHandler);
+          }
+        });
+    </script>
+  </body>
+</html>
