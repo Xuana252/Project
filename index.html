@@ -227,6 +227,7 @@
       document
         .getElementById("click_me_button")
         .addEventListener("click", () => {
+          document.title = "!!!Happy Birthday!!!"
           document.getElementById("container").remove();
           // Play the audio and log any errors
           const audio = document.getElementById("birthdayAudio");
